@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url( r'^accounts/', include( 'accounts.urls' ) ),
     url( r'^location/', include( 'location.urls' ) ),
+    url(r'^docs/', include('rest_framework_swagger.urls')),
 ]

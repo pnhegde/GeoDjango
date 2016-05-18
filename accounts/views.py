@@ -30,10 +30,15 @@ class TransportOperatorMixin(object):
 
 
 class TransportOperatorListCreate(TransportOperatorMixin, ListCreateAPIView):
+    """
+    `TransportOperatorListCreate` allows you to list all Transporters or Create a new Transporter
+    """
     lookup_field = 'id'
-    pass
 
 
 class TransportOperatorDetail(TransportOperatorMixin, generics.RetrieveUpdateDestroyAPIView):
+    """
+    `TransportOperatorDetail` allows you to get details of a TransportOperator
+    or perform Update/Delete operations.
+    """
     lookup_field = 'id'
-    pass

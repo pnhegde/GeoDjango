@@ -4,9 +4,6 @@ from django.db import models
 from custom_user.models import AbstractEmailUser
 from django.utils import timezone as django_timezone
 
-from GeoDjango import utils
-
-
 LANGUAGE_CHOICES = (
         ('english', 'English'),
         ('hindi', 'Hindi'),
@@ -27,6 +24,9 @@ CURRENCY = (
 
 
 class TransportOperator(AbstractEmailUser):
+    """
+    `TransportOperator` is a Django user who provides Transportation services and managers `PolygonAddress`.
+    """
     name = models.CharField(max_length=128, null=False, blank=True)
     phone = models.CharField(max_length=32, null=False, blank=True)
     language = models.CharField(max_length=200, null=False, default='english',

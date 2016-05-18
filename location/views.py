@@ -19,6 +19,9 @@ class PolygonAddressMixin(object):
 
 
 class PolygonAddressFilter(filters.BaseFilterBackend):
+    """
+    `PolygonAddressFilter` is used for filtering geo points in a Polygon
+    """
     def filter_queryset(self, request, queryset, view):
         latlng = request.query_params.get('contains')
         if not latlng:
@@ -29,13 +32,26 @@ class PolygonAddressFilter(filters.BaseFilterBackend):
 
 
 class PolygonAddressListCreate(PolygonAddressMixin, ListCreateAPIView):
+    """
+    `PolygonAddressListCreate` API allows you to create a new polygon or List all existing polygons.
+    Example Input:
+    {
+        "latlng": {"type":"Polygon","coordinates": [[ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]] ]},
+        "name": "Polygon Name",
+        "price": "1010"
+    }
+    """
     filter_fields = ('latlng',)
     filter_backends = (PolygonAddressFilter, )
 
-    # def post(self, request, *args, **kwargs):
+    def get_queryset(self):
+        return PolygonAddress.objects.filter(operator=self.request.user)
 
 
 
 class PolygonAddressDetail(PolygonAddressMixin, generics.RetrieveUpdateDestroyAPIView):
+    """
+    `PolygonAddressDetail` allows you to get, update and delete a particual PolygonAddress.
+    """
     lookup_field = 'id'
 
