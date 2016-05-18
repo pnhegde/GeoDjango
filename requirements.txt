@@ -9,6 +9,7 @@ django-filter==0.13.0
 django-money==0.8
 djangorestframework==3.3.3
 djangorestframework-gis==0.10.1
+django-rest-swagger==0.3.7
 gnureadline==6.3.3
 gunicorn==19.4.5
 ipython==4.1.2
