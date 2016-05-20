@@ -88,8 +88,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': os.environ.get('POSTGRES_DBNAME', 'geodjango_core_db'),
-        'USER': os.environ.get('POSTGRES_USER', 'appsmonk_admin'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'pasSword'),
+        'USER': os.environ.get('POSTGRES_USER', 'geodjango_admin'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'password'),
         'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
         'PORT': os.environ.get('POSTGRES_PORT', '5432'),
     }
